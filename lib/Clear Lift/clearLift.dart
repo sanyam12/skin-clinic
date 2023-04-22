@@ -1,32 +1,20 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:expandable/expandable.dart';
 
-class ThreadListTrtmnt extends StatefulWidget {
-  const ThreadListTrtmnt({Key? key}) : super(key: key);
-
-  @override
-  State<ThreadListTrtmnt> createState() => _ThreadListTrtmntState();
-}
-
-class _ThreadListTrtmntState extends State<ThreadListTrtmnt> {
-  late YoutubePlayerController _controller;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _controller = YoutubePlayerController(
-      initialVideoId: "lFsht7UBpBA",
-      flags: const YoutubePlayerFlags(
-        autoPlay: false,
-        mute: true,
-      ),
-    );
-  }
+class ClearLift extends StatelessWidget {
+  const ClearLift({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    List<List<String>> arr = [];
+    arr.add([
+      "assets/images/clearlift.jpg",
+      "A touch of dermal filler in multiple areas.",
+      "https://www.instagram.com/reel/ClAtvPhPxnZ/?igshid=YmMyMTA2M2Y%3D"
+    ]);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -49,12 +37,12 @@ class _ThreadListTrtmntState extends State<ThreadListTrtmnt> {
                       color: Colors.black38,
                     )),
                 const Positioned(
-                  top: 100,
+                  top: 200,
                   bottom: 0,
                   left: 10,
                   right: 0,
                   child: Text(
-                    "Thread Lift Treatment         Gurgaon",
+                    "Clear Lift",
                     style: TextStyle(
                         fontFamily: "gildaDisplay",
                         fontSize: 40,
@@ -65,52 +53,84 @@ class _ThreadListTrtmntState extends State<ThreadListTrtmnt> {
               ],
             ),
             const SizedBox(
-              height: 10,
+              height: 25,
+            ),
+
+            CarouselSlider(
+                options: CarouselOptions(height: 700, viewportFraction: 1.0),
+                items: arr.map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                        child: Column(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width,
+                              decoration:
+                              const BoxDecoration(color: Colors.black),
+                              height: 350,
+                              child: Image.asset(i[0]),
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  padding:
+                                  const EdgeInsets.fromLTRB(30, 30, 0, 0),
+                                  child: const Text(
+                                    "INSTAGRAM",
+                                    style: TextStyle(fontFamily: "barlow"),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Container(
+                              padding: const EdgeInsets.fromLTRB(30, 10, 0, 0),
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                i[1],
+                                style: const TextStyle(
+                                    fontFamily: "gildaDisplay", fontSize: 32),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  padding:
+                                  const EdgeInsets.fromLTRB(30, 10, 0, 0),
+                                  child: ElevatedButton(
+                                      onPressed: () async {
+
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                          primary: const Color(0xFF81684A)),
+                                      child: const Text("READ MORE")),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                }).toList()),
+
+            const SizedBox(
+              height: 25,
             ),
             Container(
                 padding: const EdgeInsets.only(left: 10),
-                child: Row(
-                  children: const [
-                    Icon(Icons.star, color: Color.fromRGBO(228, 168, 83, 100)),
-                    Icon(Icons.star, color: Color.fromRGBO(228, 168, 83, 100)),
-                    Icon(Icons.star, color: Color.fromRGBO(228, 168, 83, 100)),
-                    Icon(Icons.star, color: Color.fromRGBO(228, 168, 83, 100)),
-                    Icon(Icons.star, color: Color.fromRGBO(228, 168, 83, 100)),
-                  ],
-                )),
-            Container(
-                padding: const EdgeInsets.only(left: 10),
                 margin: const EdgeInsets.all(5),
                 child: const Text(
-                  "G a r e k a r s  M D",
-                  style: TextStyle(fontFamily: "gildaDisplay"),
-                )),
-            Container(
-                padding: const EdgeInsets.only(left: 10),
-                margin: const EdgeInsets.all(5),
-                child: const Text(
-                  "Thread Lift Treatment",
+                  "What is Clearlift 4D?",
                   style: TextStyle(fontFamily: "gildaDisplay", fontSize: 35),
                 )),
             Container(
                 padding: const EdgeInsets.only(left: 10),
                 margin: const EdgeInsets.all(5),
                 child: const Text(
-                  "Get the best thread facelift that you can find in Gurgaon. This kind of facelift is a non-surgical intervention which involves using tiny threads underneath your skin to tighten and lift specific areas. The great thing about this treatment is that the results are long lasting (can last up to a year and a half or more).",
-                  style: TextStyle(fontFamily: "barlow", fontSize: 18),
-                )),
-            Container(
-                padding: const EdgeInsets.only(left: 10),
-                margin: const EdgeInsets.all(5),
-                child: const Text(
-                  "Another great thing about this thread lift treatment is that there is barely any downtime and the procedure does not require the removal of these threads as they are dissolvable(They are made from the same material as surgical sutures)",
-                  style: TextStyle(fontFamily: "barlow", fontSize: 18),
-                )),
-            Container(
-                padding: const EdgeInsets.only(left: 10),
-                margin: const EdgeInsets.all(5),
-                child: const Text(
-                  "What are you waiting for, get the best thread facelift in Gurgaon at Garekars M.D. Dermatology Clinic, today!",
+                  "The global brand Alma ClearLift is a skin rejuvenation treatment that is being offered across various countries. ClearLift is a painless lunch time procedure. ClearLift 4D, the most powerful fractionated Q-SWITCHED Nd:YAG laser technology which works on skin remodelling as well as pigmentation.",
                   style: TextStyle(fontFamily: "barlow", fontSize: 18),
                 )),
             Container(
@@ -146,7 +166,12 @@ class _ThreadListTrtmntState extends State<ThreadListTrtmnt> {
                 ],
               ),
             ),
-            Container(padding: const EdgeInsets.all(20), child: player()),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+                padding: const EdgeInsets.all(20),
+                child: Image.asset("assets/images/clearlift.jpeg")),
             Container(
               decoration:
                   const BoxDecoration(color: Color.fromRGBO(228, 168, 83, 100)),
@@ -170,13 +195,13 @@ class _ThreadListTrtmntState extends State<ThreadListTrtmnt> {
                       color: Colors.white,
                       child: ExpandablePanel(
                         header: const Text(
-                          "What are threads?",
+                          "What are the benefits of Clearlift 4D?",
                           style: TextStyle(
                               fontFamily: "gildaDisplay", fontSize: 25),
                         ),
                         collapsed: const Text(""),
                         expanded: const Text(
-                          "Threads are an effective technique to lift and tighten sagging skin. These threads are composed of Polydioxanone (PDS). This material has been utilized for surgically suturing wounds since a long time, therefore its safety profile is well established.",
+                          "Reduces signs of aging like fine lines and wrinkles, Reduces uneven skin tone, spots, blemishes, freckels and sun spots, Tightens dilated skin pores, Reduces uneven tone, Skin rejuvenation, Has a role to play in the treatment of Melasma",
                           style: TextStyle(fontFamily: "barlow", fontSize: 18),
                         ),
                       ),
@@ -189,13 +214,13 @@ class _ThreadListTrtmntState extends State<ThreadListTrtmnt> {
                       color: Colors.white,
                       child: ExpandablePanel(
                         header: const Text(
-                          "Which areas can be treated?",
+                          "How long is a session of Clearlift?",
                           style: TextStyle(
                               fontFamily: "gildaDisplay", fontSize: 25),
                         ),
                         collapsed: const Text(""),
                         expanded: const Text(
-                          "Sagging cheeks, Brow lift, Jowls, Neck lines, Prominent naso-labial folds, Droopy corners of the mouth, Arms, Thighs, Abdomen",
+                          "Clearlift is a 75 minute procedure. The first step is prepping the skin with exfoliation, hydration and massaging, the next step involves the Clearlift 4D shots delivery to the skin. The device settings are first applied keeping in mind the skin type and the concerns.",
                           style: TextStyle(fontFamily: "barlow", fontSize: 18),
                         ),
                       ),
@@ -208,13 +233,13 @@ class _ThreadListTrtmntState extends State<ThreadListTrtmnt> {
                       color: Colors.white,
                       child: ExpandablePanel(
                         header: const Text(
-                          "What happens during treatment?",
+                          "How many sessions of Clearlift would I need?",
                           style: TextStyle(
                               fontFamily: "gildaDisplay", fontSize: 25),
                         ),
                         collapsed: const Text(""),
                         expanded: const Text(
-                          "Threads generally require application of a local anaesthesia cream at the site to be treated. The cream is kept for 30 minutes post which the area is numb. The threads are then sequentially introduced using a cannula or micro-needle. In most cases you can resume your everyday routine activities almost immediately. The effect is visible right after the procedure and the effects amplify over the next few months.",
+                          "To achieve best results, one needs to undergo at least two to four treatments every 2-3 weeks. However the total number of sessions is also decided by our doctors keepin in in mind your skin concerns. For best results, one needs to undergo at least two to for treatments every 2-3 weeks. Leading physicians and practitioners around the world are already using, which lets them control the exact depth or the treatment. This means much more precise treatments – and unprecedented results. Considered a ‘lunchtime procedure’ due to its quick and easy ‘In-and-out’ approach",
                           style: TextStyle(fontFamily: "barlow", fontSize: 18),
                         ),
                       ),
@@ -227,13 +252,13 @@ class _ThreadListTrtmntState extends State<ThreadListTrtmnt> {
                       color: Colors.white,
                       child: ExpandablePanel(
                         header: const Text(
-                          "How do threads work?",
+                          "Is there any recovery time post Clearlift?",
                           style: TextStyle(
                               fontFamily: "gildaDisplay", fontSize: 25),
                         ),
                         collapsed: const Text(""),
                         expanded: const Text(
-                          "Once inserted, the threads lead to an initial lift which is visible immediately after the procedure. Over the next few months the threads induce collagen production which causes further tightening and lifting effect.",
+                          "Clearlift s a lunch time procedure and does not cause any redness or irritation on the skin and hence has no down time.",
                           style: TextStyle(fontFamily: "barlow", fontSize: 18),
                         ),
                       ),
@@ -246,13 +271,32 @@ class _ThreadListTrtmntState extends State<ThreadListTrtmnt> {
                       color: Colors.white,
                       child: ExpandablePanel(
                         header: const Text(
-                          "What are the pre-treatment instructions to be followed for threads procedure?",
+                          "Is Clearlift safe?",
                           style: TextStyle(
                               fontFamily: "gildaDisplay", fontSize: 25),
                         ),
                         collapsed: const Text(""),
                         expanded: const Text(
-                          "An initial consultation is done to discuss all the pre and post procedure instructions. Bruising is a common side effect. Aspirin, green tea and Vitamin C, E supplements can increase the chances of bruising. However, Aspirin prescribed for a medical illness should be continued. Patients with a history of Herpes labialis are started on prophylactic acyclovir tablets.",
+                          "Clearlift is a very safe procedure with no side effects and can also be done immediately prior to any of your big social commitments or events. However, it is to be avoided in case you are pregnant..",
+                          style: TextStyle(fontFamily: "barlow", fontSize: 18),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      color: Colors.white,
+                      child: ExpandablePanel(
+                        header: const Text(
+                          "What are the post procedure precautions with Clearlift 4d?",
+                          style: TextStyle(
+                              fontFamily: "gildaDisplay", fontSize: 25),
+                        ),
+                        collapsed: const Text(""),
+                        expanded: const Text(
+                          "You might experience mild itching, redness or swelling on treated area for next 24-48 hours, Use only cleanser, moisturiser and sunscreen on treated area for 24 hours post procedure, Don’t use any scrubs, loofahs, facial steamers for 03 days post procedure, Don’t use anti acne creams, serums, anti-aging creams or any other ointments prescribed to you other than moisturiser and sunscreen for 24 hours post procedure, Do not tweeze, bleach, wax or exfoliate the treated area for 03 days post procedure, Do not take any other treatments like laser, peeling, Medi facial/Medi spa for 01week post procedure, Use moisturiser and sunscreen every 4-5 hourly and avoid activities involving prolonged direct sun exposure like swimming, hiking for 03 days post procedure.",
                           style: TextStyle(fontFamily: "barlow", fontSize: 18),
                         ),
                       ),
@@ -265,16 +309,5 @@ class _ThreadListTrtmntState extends State<ThreadListTrtmnt> {
         ),
       ),
     );
-  }
-
-  player() {
-    return YoutubePlayer(
-        controller: _controller!,
-        showVideoProgressIndicator: true,
-        progressIndicatorColor: Colors.red,
-        progressColors: const ProgressBarColors(
-          playedColor: Colors.red,
-          handleColor: Colors.grey,
-        ));
   }
 }

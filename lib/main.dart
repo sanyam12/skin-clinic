@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skin_clinic/Clear%20Lift/clearLift.dart';
 import 'package:skin_clinic/Thread%20Lift%20Treatment/threadLiftTreatment.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ThreadListTrtmnt(),
+      home: ClearLift(),
     );
   }
 }
