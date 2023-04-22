@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class ThreadListTrtmnt extends StatelessWidget {
   const ThreadListTrtmnt({Key? key}) : super(key: key);
@@ -18,7 +19,12 @@ class ThreadListTrtmnt extends StatelessWidget {
                   right: 0,
                   child: Container(
                     color: Colors.black26,
-                  ))
+                  )),
+              const Text(
+                "Thread Lift",
+                style: TextStyle(fontFamily: "barlow", fontSize: 30, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
             ],
           )
         ],
